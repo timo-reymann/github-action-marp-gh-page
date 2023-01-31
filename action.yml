@@ -20,16 +20,19 @@ runs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Build with marp cli
+      shell: bash
       run: |
         npx @marp-team/marp-cli index.md -o build/index.html
     - name: Copy images
-      if: ${{ inputs.assets_path }}
+      shell: bash
       run: |
         cp -r ${{ inputs.assets_path }}/ build/${{ inputs.assets_path }}
+      if: ${{ inputs.assets_path }}
     - name: Setup CNAME
+      shell: bash
       run: |
         echo "${{ inputs.domain }}" > build/CNAME
-      if: ${{ inputs.domain
+      if: ${{ inputs.domain }}
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
       with:
