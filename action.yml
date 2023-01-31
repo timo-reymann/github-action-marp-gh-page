@@ -1,7 +1,10 @@
 ---
 name: marp-gh-page
 description: Build and deploy marp presentation to GitHub Pages
-icon: book-open
+branding:
+  icon: book-open
+  color: green
+
 inputs:
   domain:
     description: CNAME to create for GitHub Page
