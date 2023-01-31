@@ -1,0 +1,31 @@
+name: 'marp-gh-page'
+description: 'Build and deploy marp presentation to GitHub Pages'
+inputs:
+  domain:
+    description: 'CNAME to create for GitHub Page'
+    required: false
+    default: null
+  assets_path:
+    description: Assets folder to include (for local images etc)
+    default: null
+    required: false
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+        uses: actions/checkout@v3
+    - name: Build with marp cli
+        run: |
+          npx @marp-team/marp-cli index.md -o build/index.html
+    - name: Copy images
+         if: ${{ inputs.assets_path }}
+         run: |
+           cp -r ${{ inputs.assets_path }}/ build/${{ inputs.assets_path }}
+     - name: Setup CNAME
+        run: |
+          echo "${{ inputs.domain }}" > build/CNAME
+        if: ${{ inputs.domain
+     - name: Deploy
+         uses: JamesIves/github-pages-deploy-action@v4
+         with:
+           folder: build
