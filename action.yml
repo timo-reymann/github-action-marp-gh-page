@@ -32,6 +32,7 @@ runs:
       shell: bash
       run: |
         echo "${{ inputs.domain }}" > build/CNAME
+        touch build/.nojekyll
       if: ${{ inputs.domain }}
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
