@@ -1,4 +1,6 @@
 # marp-gh-page-action
+[![LICENSE](https://img.shields.io/github/license/timo-reymann/marp-gh-page-action)](https://github.com/timo-reymann/marp-gh-page-action/blob/main/LICENSE)
+
 GitHub Action to build a marp repository and publish to github pages
 
 ## Required for usage
