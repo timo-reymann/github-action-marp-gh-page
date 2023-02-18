@@ -23,6 +23,7 @@ runs:
       shell: bash
       run: |
         npx @marp-team/marp-cli index.md -o build/index.html
+        npx @marp-team/marp-cli index.md -o build/slides.pdf
     - name: Copy images
       shell: bash
       run: |
