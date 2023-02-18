@@ -12,7 +12,7 @@
 - You have one or no asset folder
 - Export as HTML must be running
 - GitHub Pages enabled for the repo
-- One presentation per repo
+- One presentation per repo: `index.md`
 
 ## Usage
 
